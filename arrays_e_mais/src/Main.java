@@ -1,8 +1,13 @@
+import entities.Employee;
 import entities.Pessoa;
 import entities.Produtos;
 
+import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import entities.Rent;
 
@@ -185,6 +190,7 @@ public class Main {
 
          */
 
+        /*
         Rent[] quartos = new Rent[10];
 
         System.out.println("Quantos quartos você quer alugar: ");
@@ -209,6 +215,104 @@ public class Main {
                 System.out.println("#" + i + ": " + quartos[i]);
             }
         }
+
+         */
+
+        /*
+        String[] vect = new String[] {"Maria", "João", "Alex"};
+
+        for(String nome : vect) {
+            System.out.println(nome);
+        }
+
+         */
+
+        //Programa de ler arraylist de empregados
+        /* Programa de ler arraylist de empregados
+        List<Employee> funcionarios = new ArrayList<>();
+
+        System.out.println("Quantos empregados vão ser registrados: ");
+        int N = sc.nextInt();
+
+        for (int i = 0; i < N; i++) {
+            System.out.println("Employee #" + (i+1) + ": ");
+            System.out.print("Id: ");
+            int id = sc.nextInt();
+            while (hasId(funcionarios, id)) {
+                System.out.println("ID já existente, tente novamente ");
+                id = sc.nextInt();
+            }
+            sc.nextLine();
+            System.out.print("Nome: ");
+            String name = sc.nextLine();
+            System.out.print("Salário: ");
+            double salario = sc.nextDouble();
+            Employee emp = new Employee(id, name, salario);
+            funcionarios.add(emp);
+        }
+
+
+        System.out.println("Digite o empregado que você quer mudar o salário: ");
+        int novoId = sc.nextInt();
+        Employee emp = funcionarios.stream().filter(x -> x.getId() == novoId).findFirst().orElse(null); //Procura se o novo id é igual id do funcionario
+        if(emp == null) {
+            System.out.println("Esse ID não existe!");
+        } else {
+            System.out.println("Digite a porcentagem de aumento: ");
+            double porcentagem = sc.nextDouble();
+            emp.increaseSalario(porcentagem);
+            System.out.println("Salário atualizado: R$" + emp.getSalary());
+        }
+
+        System.out.println("\nLista de empregados: ");
+        for (Employee emp1 : funcionarios) {
+            System.out.println(emp1);
+        }
+
+         */
+
+        /*
+
+        list.add("Maria");
+        list.add("Bob");
+        list.add("João");
+        list.add("Alexs");
+        list.add("Atomus");
+        list.add(2, "Toperson");
+
+        System.out.println(list.size());
+
+        list.remove("Maria");
+
+        for(String nome: list) {
+            System.out.println(nome);
+        }
+
+        list.removeIf(x -> x.charAt(0) == 'T');
+
+        System.out.println("-------------------------------------------------");
+        for(String nome: list) {
+            System.out.println(nome);
+        }
+
+        System.out.println("-------------------------------------------------");
+
+        System.out.println(list.indexOf("João"));
+
+        System.out.println("-------------------------------------------------");
+
+        List<String> result = list.stream().filter(x -> x.charAt(0) == 'A').collect(Collectors.toList());
+
+        for(String nome: result) {
+            System.out.println(nome);
+        }
+
+        System.out.println("-------------------------------------------------");
+
+        String name = list.stream().filter(x->x.charAt(0) == 'A').findFirst().orElse(null);
+        System.out.println(name);
+
+         */
 
         /*
         Pessoa[] pessoas = new Pessoa[N];
@@ -243,6 +347,92 @@ public class Main {
 
          */
 
+        //Matrizes
+        System.out.println("Digite o tamanho que você quer sua matriz: ");
+        System.out.print("Linhas: ");
+        int N = sc.nextInt();
+        System.out.print("Colunas: ");
+        int M = sc.nextInt();
+        int[][] matriz = new int[N][M];
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.println("Linha: " + (i) + " Coluna: " + (j));
+                matriz[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+        }
+
+        System.out.println("\nDigite um número inteiro: ");
+        int numeroX = sc.nextInt();
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if(matriz[i][j] == numeroX) {
+                    System.out.println("Posição: " + i + "," + j + ":" );
+                    if (j > 0) {
+                        System.out.println("Left: " + (matriz[i][j - 1]));
+                    }
+                    if(i > 0) {
+                        System.out.println("Up: " + (matriz[i - 1][j]));
+                    }
+                    if (j < matriz[i].length - 1) {
+                        System.out.println("Right: " + (matriz[i][j + 1]));
+                    }
+                    if (i < matriz.length - 1) {
+                        System.out.println("Down: " + (matriz[i + 1][j]));
+                    }
+
+                }
+            }
+        }
+
+        /*
+        System.out.print("Qual o tamanho da sua matriz: ");
+        int N = sc.nextInt();
+        int[][] matriz = new int[N][N]; //Criando matriz bidimensional
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                System.out.println("Digite o valor que quer adicionar na Linha " + (i) + " e na Coluna " + (j));
+                matriz[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println("Diagonal principal: ");
+        for (int i = 0; i < matriz.length; i++) {
+            System.out.print(matriz[i][i] + " ");
+        }
+
+
+        int count = 0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if (matriz[i][j] < 0) {
+                    count++;
+                }
+            }
+        }
+
+        System.out.println("\n\nQuantidade de números negativos: " + count );
+
+        //Imprimindo todos os elementos
+        /*
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                System.out.println(matriz[i][j]);
+            }
+        }
+
+         */
+
         sc.close();
+    }
+
+    public static boolean hasId(List<Employee> list, int id) {
+        Employee emp5 = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+        return emp5 != null;
     }
 }
