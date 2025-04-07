@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="MySQLConnector" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/../../../../../../../Program Files (x86)/Java-libs/jdbc-connectors" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../../../../Program Files (x86)/Java-libs/jdbc-connectors" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
