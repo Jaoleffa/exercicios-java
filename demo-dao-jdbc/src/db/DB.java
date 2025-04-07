@@ -1,4 +1,6 @@
-package models.db;
+package db;
+
+import models.db.DbException;
 
 import javax.swing.*;
 import java.io.FileInputStream;
@@ -16,7 +18,7 @@ public class DB {
                 String url = props.getProperty("dburl");
                 conn = DriverManager.getConnection(url, props);
             } catch (SQLException e) {
-                throw new DbException(e.getMessage());
+                throw new models.db.DbException(e.getMessage());
             }
 
         }
