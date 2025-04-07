@@ -122,9 +122,42 @@ public class Main {
         } catch (SQLException e) {
             throw new DbIntegrityException(e.getMessage());
         }
+
+         */
+        //Transações (métodos de proteção de manipulações
+        /*
+        Statement st = null;
+        try {
+            conn = DB.getConnection();
+
+            conn.setAutoCommit(false);
+
+            st = conn.createStatement();
+
+            int rows = st.executeUpdate("UPDATE seller SET BaseSalary = 2090 WHERE DepartmentId = 1");
+
+            int x = 1;
+
+            if (x < 0) {
+                throw new SQLException("Fake error");
+            }
+
+            int rows2 = st.executeUpdate("UPDATE seller SET BaseSalary = 3090 WHERE DepartmentId = 2");
+
+            conn.commit();
+
+            System.out.println(rows);
+            System.out.println(rows2);
+        } catch (SQLException e) {
+            try {
+                conn.rollback();
+                throw new DbException("Transaction rolled back! Causa: " + e.getMessage());
+            } catch (SQLException e1) {
+                throw new DbException("Error trying to rollback! Caused by " + e1.getMessage());
+            }
+        }
         
          */
-
 
 
     }
