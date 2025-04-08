@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class Department   {
-    private int id;
-    private String name;
+    protected int id;
+    protected String name;
 
     public Department() {
 
